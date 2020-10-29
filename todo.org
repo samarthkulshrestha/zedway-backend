@@ -1,0 +1,94 @@
+#+TITLE: Zedway
+
+* Minor Features
+** +Notifications+
+** +Delete Post (Delete the file as well!)+
+** +Report Post+
+** +Report User+
+** +Report Comment+
+** +Hashtags+
+** Customize gradient
+** +Text Editor+
+** +Like Button (Heart should get filled)+
+** +Check mark after followed+
+** +Optimise media files+
+** +Remove Age and Email from the UserProfile page+
+** +Do Not display Follow/Unfollow/Report when logged in from user's own account+
+** +Don't display settings while seeing someone else's account+
+** +Don't allow to delete someone else's post+
+** +Don't allow to report their own post+
+** Use the professional email for verification
+** +Make all feilds except DOB optional in signup step 2+
+** +Add audio/video players+
+** +Forgot password?+
+** Change notification icon's color
+** Remove Follower
+** +Block+
+** Account Settings
+
+* Hosting
+** Create a Linode
+** ssh into the server
+** update and upgrade the system
+** configure the hostname(hostnamectl set-hostnamne) and hosts (ip  hostname)
+** add a limited user (adduser)
+** add new user to sudo group (adduser {name} sudo)
+** ssh into server as new user
+** enable ssh key-based auth
+*** mkdir -p ~/.ssh
+*** [ON LOCAL MACHINE] ssh-keygen -b 4096
+*** [ON LOCAL MACHINE] scp ~/.ssh/id-rsa.pub {user}@{ip}:~/.ssh/authorized_keys
+*** change permissions for ~/.ssh/ (sudo chmod 700 ~/.ssh/)
+*** change permissions for ~/.ssh/* (sudo chmod 600 ~/.ssh/*)
+*** logout and log back into the server
+*** change /etc/sshd/sshd_config to disable root login and password authentication
+*** restart sshd with systemctl
+** setup firewall
+*** install ufw
+*** sudo ufw default allow outgoing
+*** sudo ufw default deny incoming
+*** sudo ufw allow ssh
+*** sudo ufw allow 8000 (will have to allow http afterwards, this is for testing)
+*** sudo ufw enable
+** [ON LOCAL MACHINE] create requirements.txt
+** push the app on the server (using git or scp)
+** install pip, pipenv, venv
+** create a virtual env
+** install requirements
+** Get app ready for production
+*** allow the host str(ip) in settings.py
+*** specify static root (STATIC_ROOT = os.path.join(BASE_DIR, 'static'))
+*** Other stuff
+** install apache2
+** install libapache2-mod-wsgi-py3
+** configure apache2
+*** make a copy of config file in /etc/apache2/sites-avalaible
+  Alias /static /home/YOURUSER/YOURPROJECT/static
+  <Directory /home/YOURUSER/YOURPROJECT/static>
+    Require all granted
+  </Directory>
+
+  Alias /media /home/YOURUSER/YOURPROJECT/media
+  <Directory /home/YOURUSER/YOURPROJECT/media>
+    Require all granted
+  </Directory>
+
+  <Directory /home/YOURUSER/YOURPROJECT/YOURPROJECT>
+    <Files wsgi.py>
+      Require all granted
+    </Files>
+  </Directory>
+
+  WSGIScriptAlias / /home/YOURUSER/YOURPROJECT/YOURPROJECT/wsgi.py
+  WSGIDaemonProcess django_app python-path=/home/YOURUSER/YOURPROJECT python-home=/home/YOURUSER/YOURPROJECT/venv
+  WSGIProcessGroup django_app
+
+  </VirtualHost>
+
+*** sudo a2ensite {conf_name}
+*** sudo a2dissite 000-default.conf
+** sudo chown :www-data zedway/
+** sudo chmod -R 775 zedway/
+** sudo chown -R :www-data zedway/media/
+** sudo chmod -R 775 zedway/media/
+** LOAD SENSITIVE DATA (secret_key, email, password) from /etc/config.json

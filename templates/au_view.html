@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178045609-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-178045609-1'); </script>
+        <link href="{% static 'audioviews.css' %}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial scale=1.0"/>
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+        <link rel="shortcut icon" href="{% static 'logo.svg' %}" type="image/svg+xml">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.plyr.io/2.0.15/plyr.css">
+        <script src="https://cdn.plyr.io/2.0.15/plyr.js"></script>
+     <title>Views</title>
+     <style>
+         :root {
+    --accent-color1: {{ user.userprofile.accent1 }};
+    --accent-color2: {{ user.userprofile.accent2 }};
+    --my-gradient: linear-gradient(45deg, var(--accent-color1), var(--accent-color2));
+  }
+     </style>
+    </head>
+    <body>
+
+        <nav class="top-navbar">
+                
+            <h1 class="webname">Zedway | views</h1>
+        </nav> 
+
+
+
+        <div class="main-content">
+           
+            <div class="audio-post">
+
+                <div class="header">
+                   <a href="/accounts/{{ post.creator.userprofile.slug }}" style='text-decoration: none; color:white;'><div class="profile-info"><img class="profile-pic" src="/media/{{ post.creator.userprofile.image }}">{{ post.creator.username }}</div></a>
+                    <div class="more-actions">
+                        {% if post.creator == request.user %}
+                            <a href="delete/"><span class="material-icons delete">delete_outline</span></a>
+                        {% else %}
+                            <a href="report"><span class="material-icons report">report_problem</span></a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="post-title">{{ post.title }}</div>
+
+
+
+                <div class="picture plyr">
+                    <audio controls>
+                        <source src="/media/{{ post.file }}" type="audio/mp3">
+                    </audio>
+
+                </div>
+
+
+		<div class="cta-btn" id="par">
+                    <input id="post_id" type="hidden" name="post_id" value="{{ post.id }}" />
+
+                    {% if request.user not in post.liked.all %}
+                        <button id="like" class="material-icons like" style='color: #aaafae'>favorite</button>
+                    {% else %}
+                        <button id="liked" class="material-icons like" style='color: #e71f5b'>favorite</button>
+                    {% endif %}
+
+                    <span class="likes"><a href="{% url 'posts:likes' slug=post.slug %}" style='color: #6666CF' id="liked-by-link">{{ post.liked.all.count }} likes</a></span>
+                    <span class="views" style="color: #6666CF">{{ post.comments.all.count }} views</span>
+                    <a class="material-icons view" href='/posts/{{ post.slug }}' style='text-decoration: none; color: #6666CF;'>chat_bubble_outline</a>
+                </div>
+
+
+                <div class="post-caption">{{ post.desc  }}</div>
+
+
+
+            </div>
+
+            <div class="post-views">
+                <h2>Views on this post</h2>
+
+                <div class="add-view">
+                    <form method="POST" action="/posts/{{ post.slug }}/">
+                        {% csrf_token %}
+                        <textarea placeholder="Your view..." name='body' required></textarea>
+                        <button type="submit" class="material-icons send">send</button>
+                    </form>
+
+                </form>
+                </div>
+
+
+
+                <div class="views-list">
+                    {% for comment in comments %}
+                        <div class="view-text">
+				<img src="/media/{{ comment.user.userprofile.image }}"><a href='/accounts/{{ comment.user.userprofile.slug  }}' style='color: black;'>{{ comment.user }}</a>
+                            <a href="report" class="material-icons report">report_problem</a>
+                        </div>
+                        <p>{{ comment.body }}</p>
+                        <br />
+                        <hr>
+                        <br />
+                    {% endfor %}
+                </div>
+          </div>
+
+        </div>
+
+
+    
+        <nav class="navbar">
+            <a href="/" class="navlink">
+               <span class="material-icons">dashboard</span>
+              <span class="nav-text"><strong>Dashboard</strong></span>
+            </a>
+          
+            <a href="/explore" class="navlink active">
+            <span class="material-icons"> explore </span>
+            <span class="nav-text"><strong> Explore </strong></span>
+            </a>
+          
+            <a href="/search" class="navlink">
+              <span class="material-icons"> search </span>
+              <span class="nav-text"><strong>Search </strong></span>
+            </a>
+          
+            <a href="/accounts/{{ user.userprofile.slug }}" class="navlink">
+              <span class="material-icons"> person_pin </span>
+              <span class="nav-text"><strong>Profile</strong></span>
+            </a>
+          </nav>
+         
+          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+	<script>
+	  $('.like').click(function (){
+		  var post_id = document.getElementById("post_id").value;
+		  var liked = document.getElementById("liked");
+		  var unliked = document.getElementById("like");
+		  if (typeof(liked) != 'undefined' && liked != null)
+		  {
+		  var status = 'liked';
+		  } else {
+		  var status = 'unliked';
+		  }
+
+		  $.ajax({
+		  url: '/posts/ajax-like',
+		  data: {
+		    'post_id': post_id,
+		    'status': status,
+		  },
+		  dataType: 'json',
+		  success: function(data) {
+		  var count = data.count + ' likes';
+		  if (data.status === 'liked') {
+			  document.getElementById("like").style.color = "#e71f5b";
+			  $("#liked-by-link").text(count)
+		  } else {
+			  document.getElementById("like").style.color = "#aaafae";
+			  $("#liked-by-link").text(count)
+		  }
+		  }
+		  });
+            });
+
+	  $('.liked').click(function (){
+		  var post_id = document.getElementById("post_id").value;
+		  var liked = document.getElementById("liked");
+		  var unliked = document.getElementById("like");
+		  var par
+		  if (typeof(liked) != 'undefined' && liked != null)
+		  {
+		  var status = 'liked'
+		  } else {
+		  var status = 'unliked'
+		  }
+
+		  $.ajax({
+		  url: '/posts/ajax-like',
+		  data: {
+		    'post_id': post_id,
+		    'status': status,
+		  },
+		  dataType: 'json',
+		  success: function(data) {
+		  var count = data.count + ' likes';
+		  if (data.status === 'liked') {
+			  document.getElementById("like").style.color = "#e71f5b";
+			  $("#liked-by-link").text(count)
+		  } else {
+			  document.getElementById("liked").style.color = "#aaafae";
+			  $("#liked-by-link").text(count)
+		  }
+		  }
+		  });
+            });
+	</script>
+
+          <script type="text/javascript">
+            $(document).on('click', 'nav a',  function(){
+                $(this).addClass('active').siblings().removeClass('active')
+            })
+           
+           </script>
+
+        <script type="text/javascript">
+         plyr.setup(".plyr");
+        </script>
+        </body>
+    </html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up!</title>
+    <link rel="stylesheet" href="signup.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="logo.svg" type="image/svg+xml">
+
+</head>
+<body>
+
+    <nav class="top-navbar">
+        <h1 class="webname">Zedway | sign up</h1>
+    </nav>
+
+    <div class="box">
+        <form>
+             <h3>Let's sign you up!</h3>
+
+            <input type="text" placeholder="First Name" class="input normal-input" required>
+            <br>
+            <input type="text" placeholder="Last Name" class="input normal-input" required>
+            <br>
+            <input type="text" placeholder="Email" class="input normal-input" required>
+            <br>
+            <div class="symbol">
+              <span class="material-icons prefix">alternate_email</span>
+              <input type="text" placeholder="Username" class="input username" required/>
+            </div>
+            <br>
+            <div class="show">
+            <input type="password" placeholder="Password" class="input password" required/>
+            <img src="hide.svg" class="off">
+            </div>
+            <br>
+            <input type="password" placeholder="Confirm Password" class="input normal-input" required>
+            <br>
+            <div class="checkbox"><input type="checkbox" name="termsofuse" value="agree" required><label for="agree">I agree to Zedway's <a href="#">Terms of Use</a></label></div><br>
+
+            <input type="submit" value="Sign In!" class="submit" />
+            <br>
+            <h4>Existing member of the Zedway fam? <a href="#">Sign In</a></h4>
+            <h4><a href="#"></a></h4>
+            <br>
+            <h5>An account with this username already exists.</h5>
+            <h5>An account with this email already exists.</h5>
+            <h5>Passwords don't match.</h5>
+        </form>
+    </div>
+
+    <nav class="navbar">
+      
+        <a href="#" class="navlink">
+        <span class="material-icons"> group </span>
+        <span class="nav-text"><strong>About Us</strong></span>
+        </a>
+  
+        <a href="#" class="navlink">
+          <span class="material-icons"> mail </span>
+          <span class="nav-text"><strong>Contact us</strong></span>
+        </a>
+  
+        <a href="#" class="navlink active">
+          <span class="material-icons"> login </span>
+          <span class="nav-text"><strong>Sign Up</strong></span>
+        </a>
+    </nav>
+
+
+    <script>
+
+      const eyeToggle = document.querySelector('.off');
+      const passwordInput = document.querySelector('.password');
+      const img = document.querySelector('.off');
+      var input = true;
+      eyeToggle.addEventListener('click', function() {
+        if (input) {
+          passwordInput.setAttribute('type', 'text');
+          img.setAttribute('src', 'show.svg');
+        } else {
+           passwordInput.setAttribute('type', 'password');
+           img.setAttribute('src', 'hide.svg');
+        }
+        input = !input
+      });
+      
+
+
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178045609-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-178045609-1'); </script>
+        <link href="{% static 'following.css' %}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial scale=1.0"/>
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+        <link rel="shortcut icon" href="{% static 'logo.svg' %}" type="image/svg+xml">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <title>{{ user.user.first_name }}'s Follows</title>
+    </head>
+    <body>
+
+        <nav class="top-navbar">
+                
+            <h1 class="webname">Zedway | following</h1>
+        </nav>
+
+
+
+        <div class="main-content">
+            <div class="list">
+            <h2>{{ user.following.all.count }} Following</h2>
+            {% for following in following %}
+                    <a href="/accounts/{{ following.userprofile.slug }}" style='text-decoration: none; color: black;'>
+                        <div class="profile">
+                            <img src="/media/{{ following.userprofile.image }}">{{ following.username }}
+                        </div>
+                    </a>    
+            {% endfor %}
+            </div>
+        </div>
+
+
+        <nav class="navbar">
+            <a href="/" class="navlink">
+               <span class="material-icons">dashboard</span>
+              <span class="nav-text"><strong>Dashboard</strong></span>
+            </a>
+          
+            <a href="/explore" class="navlink active">
+            <span class="material-icons"> explore </span>
+            <span class="nav-text"><strong> Explore </strong></span>
+            </a>
+          
+            <a href="/search" class="navlink">
+              <span class="material-icons"> search </span>
+              <span class="nav-text"><strong>Search </strong></span>
+            </a>
+          
+            <a href="/accounts/{{ request.user.userprofile.slug }}" class="navlink">
+              <span class="material-icons"> person_pin </span>
+              <span class="nav-text"><strong>Profile</strong></span>
+            </a>
+          </nav>
+         
+          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+          <script type="text/javascript">
+            $(document).on('click', 'nav a',  function(){
+                $(this).addClass('active').siblings().removeClass('active')
+            })
+           
+           </script>
+        </body>
+    </html>

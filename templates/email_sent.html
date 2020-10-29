@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+     <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178045609-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-178045609-1'); </script>
+     <meta name="viewport" content="width=device-width, initial scale=1.0"/>
+     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="shortcut icon" href="{% static 'logo.svg' %}" type="image/svg+xml">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="{% static 'email_sent.css' %}">
+
+     <title>Verify your email</title>
+</head>
+
+<body>
+
+    <nav class="top-navbar">
+        <h1 class="webname">Zedway</h1>
+    </nav>
+
+    <div class="main-container">
+
+        <img src="{% static 'emailsent.svg' %}">
+        <h1>Almost done!</h1>
+        <h4>We've sent you an email with a verification link.(Check your spam folder as well)</h4> <br>
+        <h4>Verify yourself to customize your account!</h4>
+        <!-- <h5>Didn't get it? <span><a href="#"> Resend </a></span></h5> -->
+
+    </div>
+   
+
+    <nav class="navbar">
+  
+        <a href="/about" class="navlink">
+        <span class="material-icons"> group </span>
+        <span class="nav-text"><strong>About Us</strong></span>
+        </a>
+  
+        <a href="/contact" class="navlink">
+          <span class="material-icons"> mail </span>
+          <span class="nav-text"><strong>Contact us</strong></span>
+        </a>
+  
+        <a href="/accounts/register" class="navlink active">
+          <span class="material-icons"> login </span>
+          <span class="nav-text"><strong>Sign Up</strong></span>
+        </a>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    
+    <script type="text/javascript">
+    $(document).on('click', 'nav a',  function(){
+    $(this).addClass('active').siblings().removeClass('active')
+     })
+    </script>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    
+    <script type="text/javascript">
+    $(document).on('click', 'nav a',  function(){
+    $(this).addClass('active').siblings().removeClass('active')
+     })
+    </script>
+</body>

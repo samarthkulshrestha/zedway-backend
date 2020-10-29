@@ -1,0 +1,14 @@
+asgiref==3.2.10
+Django==3.0.8
+django-email-verification==0.0.5.post1
+django-model-utils==4.0.0
+django-notifications-hq==1.6.0
+jsonfield==3.1.0
+Pillow==7.2.0
+psycopg2-binary==2.8.5
+python-magic==0.4.18
+pytz==2020.1
+six==1.15.0
+sqlparse==0.3.1
+swapper==1.1.2.post1
+django-allauth

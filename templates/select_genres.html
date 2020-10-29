@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'logo.svg' %}" type="image/svg+xml">
+    <link rel="stylesheet" href="{% static 'genres.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    
+  <title>Choose your likes</title>
+</head>
+<body>
+
+
+    <nav class="top-navbar">
+                
+        <h1 class="webname">Zedway </h1>
+
+    </nav> 
+
+    <form class="main-content" method='post' action='/accounts/genres/'>
+        {% csrf_token %}
+        
+        <ul>
+            <h2>Choose 3 or more categories that you like : </h2>
+
+            <li><input type="checkbox" class="check" id="art" name='genres' value="art"/>
+              <label for="art"><img src="{% static 'art.png' %}"/></label>
+            </li>
+
+            <li><input type="checkbox" class="check" id="technology" name='genres' value="technology"/>
+              <label for="technology"><img src="{% static 'tech.png' %}"/></label>
+            </li>
+
+            <li><input type="checkbox" class="check" id="education" name='genres' value="education"/>
+              <label for="education"><img src="{% static 'edu.png' %}"/></label>
+            </li>
+
+            <li><input type="checkbox" class="check" id="fashion" name='genres' value="fashion"/>
+              <label for="fashion"><img src="{% static 'fashion.png' %}"/></label>
+            </li>
+
+            <li><input type="checkbox" class="check" id="lifestyle" name='genres' value="lifestyle"/>
+                <label for="lifestyle"><img src="{% static 'lifestyle.png' %}"/></label>
+              </li>
+
+              <li><input type="checkbox"  class="check" id="books" name='genres' value="books"/>
+                <label for="books"><img src="{% static 'books.png' %}"/></label>
+              </li>
+
+              <li><input type="checkbox" class="check" id="movies" name='genres' value="movies"/>
+                <label for="movies"><img src="{% static 'movies.png' %}"/></label>
+              </li>
+
+              <li><input type="checkbox" class="check" id="memes" name='genres' value="memes"/>
+                <label for="memes"><img src="{% static 'memes.png' %}"/></label>
+              </li>
+
+              <li><input type="checkbox" class="check" id="shopping" name='genres' value="shopping"/>
+                <label for="shopping"><img src="{% static 'shopping.png' %}"/></label>
+              </li>
+  
+              <li><input type="checkbox"  class="check" id="cooking" name='genres' value="cooking"/>
+                <label for="cooking"><img src="{% static 'cooking.png' %}"/></label>
+              </li>
+  
+              <li><input type="checkbox" class="check" id="travel" name='genres' value="travel"/>
+                  <label for="travel"><img src="{% static 'travel.png' %}"/></label>
+                </li>
+  
+                <li><input type="checkbox" class="check" id="music" name='genres' value="music"/>
+                  <label for="music"><img src="{% static 'music.png' %}"/></label>
+                </li>
+  
+                <li><input type="checkbox" class="check" id="blogging" name='genres' value="blogging"/>
+                  <label for="blogging"><img src="{% static 'blogging.png' %}"/></label>
+                </li>
+  
+                <li><input type="checkbox" class="check" id="photography" name='genres' value="photography"/>
+                  <label for="photography"><img src="{% static 'photo.png' %}"/></label>
+                </li>
+
+                <li><input type="checkbox" class="check" id="physics" name='genres' value="physics"/>
+                    <label for="physics"><img src="{% static 'physics.png' %}"/></label>
+                </li>
+    
+                <li><input type="checkbox" class="check" id="astrophysics" name='genres' value="astrophysics"/>
+                    <label for="astrophysics"><img src="{% static 'astrophysics.png' %}"/></label>
+                </li>
+    
+                <li><input type="checkbox" class="check" id="computerscience" name='genres' value="computerscience"/>
+                    <label for="computerscience"><img src="{% static 'cs.png' %}"/></label>
+                </li>
+    
+                <li><input type="checkbox" class="check" id="coding" name='genres' value="coding"/>
+                    <label for="coding"><img src="{% static 'coding.png' %}"/></label>
+                </li>
+
+                <li><input type="checkbox" class="check" id="writing" name='genres' value="writing"/>
+                    <label for="writing"><img src="{% static 'writing.png' %}"/></label>
+                </li>
+    
+                <li><input type="checkbox" class="check" id="poetry" name='genres' value="poetry"/>
+                    <label for="poetry"><img src="{% static 'poetry.png' %}"/></label>
+                </li>
+
+                <li><input type="checkbox" class="check" id="podcasts" name='genres' value="podcasts"/>
+                    <label for="podcasts"><img src="{% static 'podcasts.png' %}"/></label>
+                </li><br>
+
+
+          <button type="submit" class="submit">Next</button>
+
+          </ul>
+    </form>
+
+    <nav class="navbar">
+        <a href="/" class="navlink active">
+           <span class="material-icons">dashboard</span>
+          <span class="nav-text"><strong>Dashboard</strong></span>
+        </a>
+      
+        <a href="/explore" class="navlink">
+        <span class="material-icons"> explore </span>
+        <span class="nav-text"><strong> Explore </strong></span>
+        </a>
+      
+        <a href="/search" class="navlink">
+          <span class="material-icons"> search </span>
+          <span class="nav-text"><strong>Search </strong></span>
+        </a>
+      
+        <a href="/accounts/{{ user.userprofile.slug }}" class="navlink">
+          <span class="material-icons"> person_pin </span>
+          <span class="nav-text"><strong>Profile</strong></span>
+        </a>
+      </nav>
+     
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script type="text/javascript">
+        $(document).on('click', 'nav a',  function(){
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+       
+       </script>
+    
+</body>
+</html>

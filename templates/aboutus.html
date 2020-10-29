@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178045609-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-178045609-1'); </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial scale=1.0"/>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'logo.svg' %}" type="image/svg+xml">
+    <link  href="{% static 'aboutus.css' %}"  rel="stylesheet">
+
+    <title>About Us</title>
+</head>
+<body>
+
+    <nav class="top-navbar">
+        <h1 class="webname">Zedway</h1>
+    </nav>
+
+
+    <div class="container">
+
+        <div id="main" class="text-section">
+            
+            <h2>Zedway</h2>
+            <h3>For the gift in you.</h3>
+            <br>
+            <br>
+
+            <p class="heading">Discover Your Talent</p><br>
+            <p class="body">Connect with people of your kind and see what they're posting about. Get inspired and discover your own talent.</p>
+            <br>
+            <br>
+
+            <p class="heading">Express yourself</p><br>
+            <p class="body">Discovered a talent? Congratulations, you're one of us now. It's time to show the world what you can do. Post about it using images, audios, videos or even text and get constructive feedback from people of the community!</p>
+
+            <br>
+            <br>
+
+            <p class="heading">Couldn't find what your talent is?</p><br>
+            <p class="body">Stick around because you never know when you might get hit with a wind of inspiration. After all, there is no specific age to discover and work on a talent!</p>
+            
+            <br>
+            <br>
+
+            <p class="heading">Bond with people</p><br>
+            <p class="body">Interact with your friends and family and get to know what they're up to! Get to know people with similar interests and branch out to the rest of the world from just a spot in your house. </p>
+
+            <br>
+            <br>
+
+            <p class="body">Come aboard, you'll love it <a href="/accounts/register">here</a> </p>
+
+            <br>
+            <br>
+            <p class="footer-text">Made with love for the world by four high school students - Ananya, Samarth, Vipul and Yasharth</p>
+
+
+        </div>
+
+
+
+          
+    </div>
+
+    <nav class="navbar">
+      
+        <a href="/about" class="navlink">
+        <span class="material-icons"> group </span>
+        <span class="nav-text"><strong>About Us</strong></span>
+        </a>
+  
+        <a href="/contact" class="navlink">
+          <span class="material-icons"> mail </span>
+          <span class="nav-text"><strong>Contact us</strong></span>
+        </a>
+  
+        <a href="/accounts/register" class="navlink">
+          <span class="material-icons"> login </span>
+          <span class="nav-text"><strong>Sign Up</strong></span>
+        </a>
+    </nav>
+     
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script type="text/javascript">
+        $(document).on('click', 'nav a',  function(){
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+       
+       </script>
+
+
+</body>
+</html>
+
+
+    
+</body>
+</html>

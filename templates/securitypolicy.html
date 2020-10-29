@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics --> <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178045609-1"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-178045609-1'); </script>
+        <meta name="viewport" content="width=device-width, initial scale=1.0"/>
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="shortcut icon" href="{% static 'logo.svg' %}" type="image/svg+xml">
+
+
+        <link  href="{% static 'security.css' %}"  rel="stylesheet">
+
+        <title>Security Policy</title>
+    </head>
+
+    <body>
+
+        <nav class="top-navbar">
+            <h1 class="webname">Zedway | security</h1>
+        </nav>
+
+
+
+        <div class="container">
+
+            <div id="main" class="text-section">
+                
+                <h2>Suggestions to ensure account security</h2>
+    
+                     <ul>
+                       <li> Create a strong password with atleast one upper case character, one numeric character and one special character. </li><br>
+                       <li> Avoid using a password that you've already used on some other website. </li><br>
+                       <li> Create an account with your email only. Anyone who can access the email linked to your account, can easily access your Zedway profile as well. </li><br>
+                       <li> Do not share your password with people you do not trust. </li> <br>
+                       <li> If you feel like someone has accessed your account without your permission, change your password immediately. (You can do so by going to your account settings.) </li> <br>
+                    </ul>
+
+                  <p class="heading">Tips for Parents</p>
+                  <br>
+                  <br>
+
+                    <ul>
+                      <li>In case your child is under 13 and is a Zedway account holder, we highly encourage you to be an active member of the community and report content that may be inappropriate.</li><br>
+                      <li>If you feel like your child is being bullyed/harassed by someone, we request you to report that content/account. If it violates our community guidelines, it will be removed immediately by us. </li>
+                    </ul>
+                    <br>
+                <p>If you have any more queries about how you can ensure account safety, do not hesitate to contact us <a href="/contact">here</a>.</p><br><br>
+
+
+
+              
+             </div>
+        </div>
+
+
+        <nav class="navbar">
+      
+            <a href="/about" class="navlink">
+            <span class="material-icons"> group </span>
+            <span class="nav-text"><strong>About Us</strong></span>
+            </a>
+      
+            <a href="/contact" class="navlink">
+              <span class="material-icons"> mail </span>
+              <span class="nav-text"><strong>Contact us</strong></span>
+            </a>
+      
+            <a href="/accounts/register" class="navlink">
+              <span class="material-icons"> login </span>
+              <span class="nav-text"><strong>Sign Up</strong></span>
+            </a>
+        </nav>
+         
+          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+          <script type="text/javascript">
+            $(document).on('click', 'nav a',  function(){
+                $(this).addClass('active').siblings().removeClass('active')
+            })
+           
+           </script>
+
+
+    </body>
+</html>

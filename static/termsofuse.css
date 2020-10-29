@@ -1,0 +1,231 @@
+* {
+	margin: 0;
+	padding: 0;
+    box-sizing: border-box;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none;
+}
+
+.webname {
+    margin-left: 3%;
+	font-size: 35px;
+	font-weight: 700;
+    background-image: linear-gradient(to right, #8a9af1, #ec7490);
+    font-family: 'Raleway' , sans-serif; 
+	background-size: 100%;
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+	
+
+}
+
+.top-navbar {
+    background-color: rgb(255, 255, 255);
+    height: 6vh;
+    width: 100%;
+    padding: 5px;
+    box-shadow: 0px 3px 15px rgba(122, 121, 122, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    
+}
+
+body {
+	background-image: url("doodle.svg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+
+.container {
+	width: 650px;
+    height: 4700px;
+    margin-bottom: 10px;
+	position: relative;
+	background-image: linear-gradient(45deg, #f4f5f7, #e4e3e3);
+	border-radius: 3px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+	0 10px 10px rgba(0,0,0,0.22);
+	margin: 12% auto;
+	padding: 5px;
+	font-family: 'Montserrat', sans-serif;
+	overflow: hidden;
+}
+
+.text-section {
+	top: 80px;
+	position: absolute;
+	width: 480px;
+	transition: .5s;
+}
+
+.text-section h2 {
+    font-size: 37px;
+    margin-bottom: 20px;
+}
+
+.text-section p {
+    font-size: 19px;
+}
+
+li {
+    font-size: 19px;
+}
+
+.heading {
+    font-size: 23px;
+    font-weight: 1000;
+    color: black;
+    text-decoration-line: underline;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 800;
+    color: black;
+}
+
+#main{
+    left: 90px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(45deg, #b9c0db, #455fd4);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-image: linear-gradient(88deg, #7a8dda, #dd99a9);
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: rgb(247, 244, 244);
+    border-radius: 8px;
+}
+
+.navlink {
+    display: flex;
+    text-decoration: none;
+    color: #636363;
+    flex-grow: 1;
+    min-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-family: 'Raleway' , sans-serif; 
+    
+}
+
+.navlink:hover {
+    color: #213fe9;
+}
+
+nav a.active {
+    color: #213fe9;
+}
+
+.navbar {
+    padding: 4px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+    background-color: #ffffff;
+    display: flex;
+    overflow-x: auto;
+    opacity: 1;
+    margin-top: 130%;
+    box-shadow: 0px 3px 15px rgba(77, 75, 76, 0.3);
+
+}
+
+@media only screen 
+and (min-device-width : 240px) 
+and (max-device-width : 640px) {
+    .top-navbar {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 2560px) {
+    .top-navbar {
+        height: 7vh;
+    }
+
+    .webname {
+        font-size: 50px;
+	}
+	
+	.navbar {
+        height: 5vh;
+    }
+
+    .navlink {
+        font-size: 18px;
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+    .container {
+        margin-bottom: 35%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .top-navbar {
+        height: 9%;
+    }
+
+    .top-navbar h1 {
+        font-size: 45px;
+	}
+	
+	.container {
+        margin-top: 60%;
+        height: 4800px;
+	}
+
+	.navbar {
+        height: 9%;
+    }
+
+    .nav-text {
+        display: none;
+    }
+
+    .material-icons {
+        transform: scale(1.8);
+    }
+
+    .main-section {
+        width: 400px;
+    }
+
+    .text-section h2 {
+        font-size: 35px;
+    }
+
+    #main {
+        left: 90px;
+    }
+
+
+}
