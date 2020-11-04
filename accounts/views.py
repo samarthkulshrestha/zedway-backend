@@ -20,7 +20,7 @@ from notifications.signals import notify
 from posts.models import Post
 
 
-def register(request):
+def register(request, backend='django.contrib.auth.backends.ModelBackend'):
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -71,7 +71,7 @@ def register(request):
         return render(request, 'signup.html')
 
 
-def login(request):
+def login(request, backend='django.contrib.auth.backends.ModelBackend'):
     if request.method == 'POST':
         inp = request.POST['username']
         password = request.POST['password']
