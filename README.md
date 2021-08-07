@@ -1,6 +1,6 @@
 # Zedway
 
-Here is the code to my first-ever kinda huge project.
+Here is the code for the backend of my first-ever kinda huge project.
 This is Zedway, a very instagram-esque social-media webapp.
 
 This is something I built with my friends, where I coded the backend
