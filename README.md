@@ -10,7 +10,7 @@ Due to this project being based on the MVC framework,
 (and the fact that we had limited knowledge of such stuff back then),
 the frontend was written in HTML/CSS, making the whole web-app,
 kinda sluggish. It isn't up anymore, we took it down after a couple
-of months, when we had around 200 users.
+of months, when we had around 1800 users.
 
 Even though this isn't the best, most polished project I've built,
 it does have a special place in my heart, and I will always cherish it.
